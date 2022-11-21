@@ -1,0 +1,13 @@
+---
+  - name: Install and build Dockerfile
+    hosts: all
+    become: true
+
+    tasks:
+    - name: Include variables from config.yaml
+      include_vars:
+        file: config.yml
+
+    - name: Add user to docker group
+      include_role:
+        name: docker
